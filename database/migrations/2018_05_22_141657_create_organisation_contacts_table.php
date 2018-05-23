@@ -23,7 +23,7 @@ class CreateOrganisationContactsTable extends Migration
             $table->string('street');
             $table->string('city');            
             $table->string('postcode');
-            $table->boolean('is_same_as_postal')
+            $table->boolean('is_same_as_postal');
             $table->string('postal_address_number');
             $table->string('postal_street');
             $table->string('postal_city');

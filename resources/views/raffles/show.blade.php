@@ -61,8 +61,13 @@
 <a href="{{ route('raffles.index') }}" class="btn btn-info">Back to all raffles</a>
 <a href="{{ route('raffles.edit', $raffle->id) }}" class="btn btn-primary">Edit Task</a>
 
-<div class="pull-right">
-    <a href="#" class="btn btn-danger">Delete this raffle</a>
-</div>
+      {!! Form::open([
+            'method' => 'DELETE',
+            'route' => ['raffles.destroy', $raffle->id]
+        ]) !!}
+            {!! Form::submit('Delete this raffle?', ['class' => 'btn btn-danger']) !!}
+        {!! Form::close() !!}	
+
+
 
 @stop

@@ -27,6 +27,7 @@ class RafflesController extends Controller
     public function create()
     {
         return view('raffles.create');
+
     }
 
     /**
@@ -41,7 +42,8 @@ class RafflesController extends Controller
         $input =  request()->except(['_token']);
 
         Raffle::forceCreate($input); // skip token for now
-        return redirect()->back();
+        //return redirect()->back();
+        return redirect()->route('raffles.index');
     }
 
     /**
@@ -64,7 +66,8 @@ class RafflesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $raffle = Raffle::findOrFail($id);
+        return view('raffles.edit')->withRaffle($raffle);
     }
 
     /**
@@ -76,7 +79,10 @@ class RafflesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $raffle = Raffle::findOrFail($id);
+        $input = $request->all();
+        $raffle->fill($input)->save();
+        return redirect()->route('raffles.view');
     }
 
     /**
@@ -87,6 +93,10 @@ class RafflesController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+    $raffle = Raffle::findOrFail($id);
+    $raffle->delete();
+    return redirect()->route('raffles.index');
+
     }
 }

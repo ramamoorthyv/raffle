@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Raffle;
+
 
 class RafflesController extends Controller
 {
@@ -13,7 +15,8 @@ class RafflesController extends Controller
      */
     public function index()
     {
-        return view('raffles.index');
+        $raffles = Raffle::all();
+        return view('raffles.index')->withRaffles($raffles);
     }
 
     /**
@@ -23,7 +26,7 @@ class RafflesController extends Controller
      */
     public function create()
     {
-        //
+        return view('raffles.create');
     }
 
     /**
@@ -34,7 +37,11 @@ class RafflesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $input =  request()->except(['_token']);
+
+        Raffle::forceCreate($input); // skip token for now
+        return redirect()->back();
     }
 
     /**

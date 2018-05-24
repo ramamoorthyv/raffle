@@ -52,7 +52,8 @@ class RafflesController extends Controller
      */
     public function show($id)
     {
-        //
+        $raffle = Raffle::findOrFail($id);
+        return view('raffles.show')->withRaffle($raffle);
     }
 
     /**

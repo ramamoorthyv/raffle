@@ -59,7 +59,7 @@
 		
 
 <a href="{{ route('raffles.index') }}" class="btn btn-info">Back to all raffles</a>
-<a href="{{ route('raffles.edit', $raffle->id) }}" class="btn btn-primary">Edit Task</a>
+<a href="{{ route('raffles.edit', $raffle->id) }}" class="btn btn-primary">Edit raffle</a>
 
       {!! Form::open([
             'method' => 'DELETE',

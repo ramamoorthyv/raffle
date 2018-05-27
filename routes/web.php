@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('raffles', 'RafflesController');
-Route::resource('prize', 'PrizeController');
+Route::resource('prizes', 'PrizesController');
 Route::resource('order', 'OrderController');
 Route::resource('organisation', 'OrganisationController');
 

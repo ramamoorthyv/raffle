@@ -31,8 +31,8 @@
        <td>{{ $raffle->status }}</td>
        <td>
        
-        <a href="{{ route('raffles.show', $raffle->id) }}" class="btn btn-info">View Task</a>
-        <a href="{{ route('raffles.edit', $raffle->id) }}" class="btn btn-primary">Edit Task</a>
+        <a href="{{ route('raffles.show', $raffle->id) }}" class="btn btn-info">View </a>
+        <a href="{{ route('raffles.edit', $raffle->id) }}" class="btn btn-primary">Edit </a>
         
         </td>
       </tr>

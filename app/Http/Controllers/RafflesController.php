@@ -82,7 +82,7 @@ class RafflesController extends Controller
         $raffle = Raffle::findOrFail($id);
         $input = $request->all();
         $raffle->fill($input)->save();
-        return redirect()->route('raffles.view');
+        return view('raffles.show')->withRaffle($raffle);
     }
 
     /**
